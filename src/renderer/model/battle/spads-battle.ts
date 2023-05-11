@@ -243,6 +243,7 @@ export class SpadsBattle extends AbstractBattle<SpadsBattleOptions> {
         super.leave();
 
         await api.comms.request("c.lobby.leave");
+        //await new Promise((f) => setTimeout(f, 1000));
     }
 
     public start() {

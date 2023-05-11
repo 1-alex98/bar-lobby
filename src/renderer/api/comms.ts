@@ -240,9 +240,9 @@ export class CommsAPI extends TachyonClient {
             api.session.battles.delete(data.lobby_id);
         });
 
-        this.onResponse("s.lobby.leave").add((data) => {
+        this.onResponse("s.lobby.leave").add(async (data) => {
+            await api.router.push("/multiplayer/custom");
             api.session.onlineBattle.value = null;
-            api.router.replace("/multiplayer/custom");
         });
 
         this.onResponse("s.lobby.add_bot").add(({ bot }) => {
